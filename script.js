@@ -3,7 +3,6 @@
 window.addEventListener("DOMContentLoaded", start);
 
 //create student object
-
 const Student = {
   firstName: "",
   lastName: "",
@@ -23,19 +22,18 @@ const url = "https://petlatkea.dk/2021/hogwarts/students.json";
 //fetched data
 let hogwartsData;
 
-//start function, calls to load JSON function
 function start() {
   console.log("hej Hogwarts");
   loadJSON();
 }
 
-//hent json data with async function
 async function loadJSON() {
   const jsonData = await fetch(url);
   hogwartsData = await jsonData.json();
-  //show hogwarts data in a table in the console
+
+  //show hogwarts data in a table in the console (for testing)
   console.table(hogwartsData);
-  //call createStudents function
+
   prepareStudents();
 }
 
