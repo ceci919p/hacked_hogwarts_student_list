@@ -7,17 +7,35 @@
     <title>Hacked Hogwarts Student List</title>
   </head>
   <body>
-    <header></header>
+    <header><h1>Hacked Hogwarts Student List</h1></header>
+
+    <section>
+      <button class="filter" data-action="filter" data-filter="*">all</button>
+      <button class="filter" data-action="filter" data-filter="gryffindor">
+        Gryffindor
+      </button>
+      <button class="filter" data-action="filter" data-filter="hufflepuff">
+        Hufflepuff
+      </button>
+      <button class="filter" data-action="filter" data-filter="ravenclaw">
+        Ravenclaw
+      </button>
+      <button class="filter" data-action="filter" data-filter="slytherin">
+        Slytherin
+      </button>
+    </section>
+
     <section id="container"></section>
 
     <template id="student">
       <article>
         <h2 id="fullname"></h2>
+
         <img src="" alt="" />
         <p id="house"></p>
         <p id="gender"></p>
         <p id="blood-status"></p>
-        <button id="details"></button>
+        <button id="details">details</button>
       </article>
     </template>
   </body>

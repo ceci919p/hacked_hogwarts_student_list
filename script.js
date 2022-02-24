@@ -13,6 +13,13 @@ const Student = {
   house: "",
 };
 
+//let filterBy = "all";
+const settings = {
+  filterBy: "all",
+  sortBy: "name",
+  sortDir: "asc",
+};
+
 //make an empty array that can contain all students
 const allStudents = [];
 
@@ -24,7 +31,78 @@ let hogwartsData;
 
 function start() {
   console.log("hej Hogwarts");
+
+  console.log("test");
+  buttonListener();
   loadJSON();
+}
+
+function buttonListener() {
+  const filterButtons = document.querySelectorAll('[data-action="filter"]');
+
+  filterButtons.forEach((button) =>
+    button.addEventListener("click", selectFilter)
+  );
+}
+
+//------filter function
+function selectFilter(event) {
+  //filter on a criteria
+  const filter = event.target.dataset.filter;
+  console.log(`User selected ${filter}`);
+  setFilter(filter);
+}
+
+function setFilter(filter) {
+  settings.filterBy = filter;
+  console.log("setfilter");
+  buildList();
+}
+
+function studentFilter(filteredList) {
+  if (settings.filterBy === "gryffindor") {
+    filteredList = allStudents.filter(isGryffindor);
+  } else if (settings.filterBy === "hufflepuff") {
+    filteredList = allStudents.filter(isHufflepuff);
+  } else if (settings.filterBy === "ravenclaw") {
+    filteredList = allStudents.filter(isRavenclaw);
+  } else if (settings.filterBy === "slytherin") {
+    filteredList = allStudents.filter(isSlytherin);
+  }
+  return filteredList;
+  //displayList(filteredList);
+}
+
+function isGryffindor(student) {
+  if (student.house === "Gryffindor") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function isHufflepuff(student) {
+  if (student.house === "Hufflepuff") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function isRavenclaw(student) {
+  if (student.house === "Ravenclaw") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function isSlytherin(student) {
+  if (student.house === "Slytherin") {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 async function loadJSON() {
@@ -171,7 +249,9 @@ function cleanData(data) {
 }
 
 function buildList() {
-  displayList();
+  const currentList = studentFilter(allStudents);
+
+  displayList(currentList);
 }
 
 function displayList(students) {
