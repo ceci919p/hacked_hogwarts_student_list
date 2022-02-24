@@ -39,17 +39,14 @@ function prepareStudents() {
   hogwartsData.forEach((stud) => {
     const student = Object.create(Student);
 
-    /*     const fullMiddleName = fullname.substring(
-      fullname.indexOf(" ") + 1,
-      fullname.lastIndexOf(" ")
-    ); */
-
     student.firstName = getFirstName(stud.fullname.trim());
     student.middleName = getMiddleName(stud.fullname.trim());
     student.nickName = getNickName(stud.fullname.trim());
     student.lastName = getLastName(stud.fullname.trim());
     student.gender = getGender(stud.gender.trim());
     student.house = getHouse(stud.house.trim());
+
+    student.profilePic = getProfilePic(stud.fullname.trim());
 
     //put student in the allStudents array
     allStudents.push(student);
@@ -70,34 +67,6 @@ function getFirstName(fullname) {
     return cleanedFirstName;
   }
 }
-/* 
-function getMiddleName(fullname) {
-  if (!fullname.includes('"')) {
-    let middleName = fullname.substring(
-      fullname.indexOf(" ") + 1,
-      fullname.lastIndexOf(" ")
-    );
-
-    const cleanedMiddleName = cleanData(middleName);
-    return cleanedMiddleName;
-  } else if (!fullname.includes("")) {
-    let middleName = null; 
-    return middleName;  //this doesn't work
-  }
-} */
-
-/* function getMiddleName(fullname) {
-  const fullMiddleName = fullname
-    .substring(fullname.indexOf(" ") + 1, fullname.lastIndexOf(" "))
-    .trim();
-
-  if (!fullname.includes('"')) {
-    let middleName = fullMiddleName;
-
-    const cleanedMiddleName = cleanData(middleName);
-    return cleanedMiddleName;
-  }
-} */
 
 function getMiddleName(fullname) {
   const firstSpace = fullname.indexOf(" ");
@@ -161,7 +130,37 @@ function getHouse(house) {
   const cleanedHouse = cleanData(house);
   return cleanedHouse;
 }
-function getProfilePic() {}
+function getProfilePic(fullname) {
+  //find first name and make it lowercase
+  const firstName = fullname.substring(
+    fullname.indexOf(0),
+    fullname.indexOf(" ")
+  );
+
+  const smallFirstName = firstName.toLowerCase();
+
+  //find first letter in firstName and make it lowercase
+  const firstLetterOfName = fullname.substring(0, 1).toLowerCase();
+
+  //the pics is named with the lastName in lowercase
+  const smallLastName = fullname
+    .substring(fullname.lastIndexOf(" ") + 1)
+    .toLowerCase();
+
+  if (smallLastName === "patil") {
+    let profilePic = `images/${smallLastName}_${smallFirstName}.png`;
+    return profilePic;
+  } else if (smallLastName.includes("-")) {
+    const smallLastNameShort = smallLastName.slice(
+      smallLastName.indexOf("-") + 1
+    );
+    let profilePic = `images/${smallLastNameShort}_${firstLetterOfName}.png`;
+    return profilePic;
+  } else {
+    let profilePic = `images/${smallLastName}_${firstLetterOfName}.png`;
+    return profilePic;
+  }
+}
 
 function cleanData(data) {
   const capitalizedFirstLetter = data.slice(0, 1).toUpperCase();
