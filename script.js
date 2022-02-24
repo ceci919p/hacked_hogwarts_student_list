@@ -38,11 +38,16 @@ function start() {
 }
 
 function buttonListener() {
+  //get filterbuttons
   const filterButtons = document.querySelectorAll('[data-action="filter"]');
+  //get sortingbuttons
+  const sortButtons = document.querySelectorAll('[data-action="sort"]');
 
   filterButtons.forEach((button) =>
     button.addEventListener("click", selectFilter)
   );
+
+  sortButtons.forEach((button) => button.addEventListener("click", selectSort));
 }
 
 //------filter function
@@ -103,6 +108,51 @@ function isSlytherin(student) {
   } else {
     return false;
   }
+}
+
+//------sorting function
+
+function selectSort(event) {
+  const sortBy = event.target.dataset.sort;
+  const sortDir = event.target.dataset.sortDirection;
+
+  //toggle the direction
+  if (sortDir === "asc") {
+    event.target.dataset.sortDirection = "desc";
+  } else {
+    event.target.dataset.sortDirection = "asc";
+  }
+
+  setSort(sortBy, sortDir);
+}
+
+function setSort(sortBy, sortDir) {
+  settings.sortBy = sortBy;
+  settings.sortDir = sortDir;
+  buildList();
+}
+
+function sortedStudents(sortedList) {
+  //let sortedList = allStudents;
+  let direction = 1;
+  if (settings.sortDir === "desc") {
+    direction = -1;
+  } else {
+    settings.direction = 1;
+  }
+
+  sortedList = sortedList.sort(sortByProperty);
+
+  function sortByProperty(a, b) {
+    console.log("clicked");
+    if (a[settings.sortBy] < b[settings.sortBy]) {
+      return -1 * direction;
+    } else {
+      return 1 * direction;
+    }
+  }
+
+  return sortedList;
 }
 
 async function loadJSON() {
@@ -235,6 +285,9 @@ function getProfilePic(fullname) {
     );
     let profilePic = `images/${smallLastNameShort}_${firstLetterOfName}.png`;
     return profilePic;
+  } else if (smallLastName === "leanne") {
+    const profilePic = `images/default.png`;
+    return profilePic;
   } else {
     let profilePic = `images/${smallLastName}_${firstLetterOfName}.png`;
     return profilePic;
@@ -250,8 +303,9 @@ function cleanData(data) {
 
 function buildList() {
   const currentList = studentFilter(allStudents);
+  const sortedList = sortedStudents(currentList);
 
-  displayList(currentList);
+  displayList(sortedList);
 }
 
 function displayList(students) {
@@ -270,8 +324,8 @@ function displayStudent(student) {
 
   //set clone data
   clone.querySelector("img").src = student.profilePic;
-  clone.querySelector("#fullname").textContent =
-    student.firstName + " " + student.lastName;
+  clone.querySelector("#firstname").textContent = student.firstName;
+  clone.querySelector("#lastname").textContent = student.lastName;
   clone.querySelector("#house").textContent = student.house;
   clone.querySelector("#gender").textContent = student.gender;
 
