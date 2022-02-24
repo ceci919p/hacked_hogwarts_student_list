@@ -48,6 +48,8 @@ function prepareStudents() {
     student.middleName = getMiddleName(stud.fullname.trim());
     student.nickName = getNickName(stud.fullname.trim());
     student.lastName = getLastName(stud.fullname.trim());
+    student.gender = getGender(stud.gender.trim());
+    student.house = getHouse(stud.house.trim());
 
     //put student in the allStudents array
     allStudents.push(student);
@@ -126,9 +128,39 @@ function getNickName(fullname) {
   }
 }
 
-function getLastName() {}
-function getGender() {}
-function getHouse() {}
+function getLastName(fullname) {
+  const lastName = fullname.substring(fullname.lastIndexOf(" ") + 1);
+
+  if (lastName.includes("-")) {
+    //split middleName into an array
+    const lastNameArray = lastName.split("");
+
+    lastNameArray.forEach((element, index, array) => {
+      // if the element contains a "-" or space make the letter afterwards uppercase
+      if (element === "-" || element === " ") {
+        array[index + 1] = array[index + 1].toUpperCase();
+      }
+    });
+
+    //then join the array into a new string by concat all elements in the array
+    let result = lastNameArray.join("");
+    return result;
+  } else if (!fullname.includes(" ")) {
+    let lastName = null;
+    return lastName;
+  } else {
+    const cleanedLastName = cleanData(lastName);
+    return cleanedLastName;
+  }
+}
+function getGender(gender) {
+  const cleanedGender = cleanData(gender);
+  return cleanedGender;
+}
+function getHouse(house) {
+  const cleanedHouse = cleanData(house);
+  return cleanedHouse;
+}
 function getProfilePic() {}
 
 function cleanData(data) {
