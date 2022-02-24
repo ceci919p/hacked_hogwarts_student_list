@@ -51,6 +51,7 @@ function prepareStudents() {
     //put student in the allStudents array
     allStudents.push(student);
   });
+  displayList(allStudents);
 }
 
 function getFirstName(fullname) {
@@ -167,4 +168,32 @@ function cleanData(data) {
   const lowerCaseTheRest = data.slice(1).toLowerCase();
   const cleanedData = capitalizedFirstLetter + lowerCaseTheRest;
   return cleanedData;
+}
+
+function buildList() {
+  displayList();
+}
+
+function displayList(students) {
+  // clear the list
+  document.querySelector("#container").innerHTML = "";
+
+  // build a new list
+  students.forEach(displayStudent);
+}
+
+function displayStudent(student) {
+  // create clone
+  const clone = document
+    .querySelector("template#student")
+    .content.cloneNode(true);
+
+  //set clone data
+  clone.querySelector("img").src = student.profilePic;
+  clone.querySelector("#fullname").textContent =
+    student.firstName + " " + student.lastName;
+  clone.querySelector("#house").textContent = student.house;
+  clone.querySelector("#gender").textContent = student.gender;
+
+  document.querySelector("#container").appendChild(clone);
 }
