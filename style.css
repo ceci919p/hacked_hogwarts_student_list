@@ -1,0 +1,95 @@
+main {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1200px) auto;
+  align-items: center;
+  grid-template-rows: auto, auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+.buttons_wrapper {
+  grid-column: 2/3;
+}
+
+main > section {
+  grid-column: 2/3;
+}
+
+section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+article {
+  display: grid;
+  margin: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+  background-color: white;
+  box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.3);
+}
+
+article #details {
+  justify-self: end;
+}
+
+#popup {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background-color: #00000099;
+  padding-block: 15em;
+  display: none;
+  overflow: scroll;
+}
+
+.align_end {
+  text-align: end;
+  font-weight: 400;
+}
+
+.align {
+  text-align: center;
+}
+
+#popup article {
+  background-color: white;
+  width: 65%;
+  margin: auto;
+}
+
+#back {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  font-weight: bolder;
+  font-size: 16px;
+}
+
+.popup_wrapper {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.name_wrapper {
+  display: flex;
+}
+
+#popup_firstname {
+  margin-right: 5px;
+  margin-block: 0;
+}
+
+#popup_lastname {
+  margin-left: 5px;
+  margin-block: 0;
+}
+
+#popup_nickname {
+  margin-block: 0;
+}

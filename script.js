@@ -324,10 +324,37 @@ function displayStudent(student) {
 
   //set clone data
   clone.querySelector("img").src = student.profilePic;
-  clone.querySelector("#firstname").textContent = student.firstName;
-  clone.querySelector("#lastname").textContent = student.lastName;
+  clone.querySelector("#fullname").textContent =
+    student.firstName + " " + student.lastName;
+
   clone.querySelector("#house").textContent = student.house;
   clone.querySelector("#gender").textContent = student.gender;
+  clone
+    .querySelector("#details")
+    .addEventListener("click", () => showDetails(student));
 
   document.querySelector("#container").appendChild(clone);
+}
+
+function showDetails(studentData) {
+  const popup = document.querySelector("#popup");
+  popup.style.display = "block";
+  popup.querySelector("#popup_profilepic").src = studentData.profilePic;
+  popup.querySelector("#popup_firstname").textContent = studentData.firstName;
+  popup.querySelector("#popup_middlename").textContent = studentData.middleName;
+  popup.querySelector("#popup_lastname").textContent = studentData.lastName;
+
+  /*   popup.querySelector("#popup_middlename").textContent = studentData.middleName;
+  popup.querySelector("#popup_lastname").textContent = studentData.lastName; */
+  popup.querySelector("#popup_nickname").textContent = studentData.nickName;
+  popup.querySelector("#popup_house").textContent =
+    "House:" + " " + studentData.house;
+  popup.querySelector("#popup_gender").textContent =
+    "Gender:" + " " + studentData.gender;
+}
+
+document.querySelector("#back").addEventListener("click", closePopup);
+
+function closePopup() {
+  document.querySelector("#popup").style.display = "none";
 }
