@@ -48,6 +48,11 @@ function buttonListener() {
   );
 
   sortButtons.forEach((button) => button.addEventListener("click", selectSort));
+
+  //searchBar
+
+  const searchBar = document.querySelector("#searchBar");
+  searchBar.addEventListener("keyup", searchFunction);
 }
 
 //------filter function
@@ -306,6 +311,14 @@ function buildList() {
   const sortedList = sortedStudents(currentList);
 
   displayList(sortedList);
+}
+
+function searchFunction(element) {
+  const searchString = element.target.value.toLowerCase();
+  const searchedStudents = allStudents.filter((student) => {
+    return student.firstName.toLowerCase().includes(searchString);
+  });
+  displayList(searchedStudents);
 }
 
 function displayList(students) {
