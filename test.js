@@ -39,7 +39,7 @@ function start() {
 
 function buttonListener() {
   //get filterbuttons
-  const filterOptions = document.querySelectorAll(option);
+  const filterOptions = document.querySelectorAll('[data-action="filter"]');
   //get sortingbuttons
   const sortButtons = document.querySelectorAll('[data-action="sort"]');
 
@@ -58,7 +58,7 @@ function buttonListener() {
 //------filter function
 function selectFilter(option) {
   //filter on a criteria
-  const filter = document.querySelector("#options").value;
+  const filter = event.target.dataset.filter;
   console.log(`User selected ${filter}`);
   setFilter(filter);
 }
