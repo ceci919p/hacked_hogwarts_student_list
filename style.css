@@ -12,13 +12,16 @@ main {
 }
 
 @font-face {
-  font-family: MagicSchool;
-  src: url(fonts/HARRYP__.TTF);
+  font-family: MagicFont;
+  src: url("fonts/harryp__-webfont.woff2") format("woff2"),
+    url("fonts/harryp__-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 h1 {
   text-align: center;
-  font-family: MagicSchool, sans-serif;
+  font-family: MagicFont, sans-serif;
   font-size: 5rem;
 }
 
