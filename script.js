@@ -424,8 +424,12 @@ function showDetails(studentData) {
     console.log("trying to make prefect");
     const prefects = allStudents.filter((student) => {
       if (student.house === selectedStudent.house && student.prefect === true) {
+        /*  document.querySelector("[data-field=prefect]").textContent =
+          "⭐ Prefect"; */
         return true;
       } else {
+        /*  document.querySelector("[data-field=prefect]").textContent =
+          "☆ Make Prefect"; */
         return false;
       }
     });
