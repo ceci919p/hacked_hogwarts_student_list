@@ -53,6 +53,15 @@
             Last name
           </button>
 
+          <button
+            id="prefect"
+            data-action="sort"
+            data-sort-direction="asc"
+            data-sort="prefect"
+          >
+            Prefect
+          </button>
+
           <!--  <button data-action="sort" data-sort-direction="asc" data-sort="prefects">
         Prefects
       </button> -->
@@ -88,6 +97,7 @@
             <div class="right_col">
               <p id="popup_house"></p>
               <p id="popup_gender"></p>
+              <button data-field="prefect">☆make prefect</button>
             </div>
           </div>
           <!--   <p id="popup_bloodstatus"></p>
@@ -112,6 +122,20 @@
           <button id="expel">expeliarmus</button>
         </article>
       </template>
+
+      <div id="warning_remove_other" class="modal hide">
+        <div class="dialog">
+          <button class="closebutton">X</button>
+          <h1>Warning!</h1>
+          <p>
+            there is already a prefect of this house and this gender. <br />
+            Do you want to remove other prefect?
+          </p>
+          <button id="removeotherbutton">
+            Remove <span data-field="otherprefect">other</span>
+          </button>
+        </div>
+      </div>
     </main>
   </body>
   <script src="script.js"></script>

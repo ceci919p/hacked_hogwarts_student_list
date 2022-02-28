@@ -12,6 +12,7 @@ const Student = {
   profilePic: "",
   house: "",
   expelled: false,
+  prefect: false,
 };
 
 //let filterBy = "all";
@@ -383,6 +384,55 @@ function showDetails(studentData) {
     "House:" + " " + studentData.house;
   popup.querySelector("#popup_gender").textContent =
     "Gender:" + " " + studentData.gender;
+
+  popup
+    .querySelector('[data-field="prefect"]')
+    .addEventListener("click", () => makePrefect(student));
+
+  function makePrefect() {
+    student.prefect = true;
+    console.log("student is now prefect");
+
+    if (student.prefect === true) {
+      studentData.prefect = false;
+    } else {
+      tryToMakePrefect(studentData);
+      //buildList(); - skal kun bruges hvis vi vil tilsætte ikonerne
+    }
+  }
+
+  function tryToMakePrefect(selectedStudent) {
+    //make new array
+    const prefects = [];
+
+    //find students that are prefects and should be added to the new array
+    allStudents.filter((student) => {
+      if (student.house === selectedStudent.house && student.prefect === true) {
+        prefects.push(student);
+      }
+    });
+
+    //we want only 1 of each gender for each house
+    const otherPrefectGender = [];
+
+    //check if student.gender is the same as selected student gender. If the condition is true, push gender to array
+    prefects.filter((student) => {
+      if (student.gender === selectedStudent.gender) {
+        otherPrefectGender.push(student);
+      }
+    });
+
+    //there should only be one of each gender for each house
+    //if theres more than one, give an option to remove one student
+
+    if (otherPrefectGender.length >= 1) {
+      console.log("there is already a prefect of this house and this gender");
+      //remove 1s in array
+      removeOther(otherPrefectGender[0]);
+    } else {
+      makePrefect(selectedStudent);
+    }
+  }
 }
 
 document.querySelector("#back").addEventListener("click", closePopup);
