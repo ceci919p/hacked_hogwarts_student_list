@@ -11,6 +11,7 @@ const Student = {
   gender: "",
   profilePic: "",
   house: "",
+  expelled: false,
 };
 
 //let filterBy = "all";
@@ -69,17 +70,23 @@ function setFilter(filter) {
   buildList();
 }
 
-function studentFilter(filteredList) {
-  if (settings.filterBy === "gryffindor") {
-    filteredList = allStudents.filter(isGryffindor);
-  } else if (settings.filterBy === "hufflepuff") {
-    filteredList = allStudents.filter(isHufflepuff);
-  } else if (settings.filterBy === "ravenclaw") {
-    filteredList = allStudents.filter(isRavenclaw);
-  } else if (settings.filterBy === "slytherin") {
-    filteredList = allStudents.filter(isSlytherin);
+function studentFilter(list) {
+  if (settings.filterBy === "expelled") {
+    list = allStudents.filter(isExpelled);
+  } else {
+    list = allStudents.filter(isNotExpelled);
+
+    if (settings.filterBy === "gryffindor") {
+      list = list.filter(isGryffindor);
+    } else if (settings.filterBy === "hufflepuff") {
+      list = list.filter(isHufflepuff);
+    } else if (settings.filterBy === "ravenclaw") {
+      list = list.filter(isRavenclaw);
+    } else if (settings.filterBy === "slytherin") {
+      list = list.filter(isSlytherin);
+    }
   }
-  return filteredList;
+  return list;
   //displayList(filteredList);
 }
 
@@ -113,6 +120,14 @@ function isSlytherin(student) {
   } else {
     return false;
   }
+}
+
+function isExpelled(student) {
+  return student.expelled;
+}
+
+function isNotExpelled(student) {
+  return !student.expelled;
 }
 
 //------sorting function
@@ -346,6 +361,10 @@ function displayStudent(student) {
     .querySelector("#details")
     .addEventListener("click", () => showDetails(student));
 
+  clone
+    .querySelector("#expel")
+    .addEventListener("click", () => expelledStudents(student));
+
   document.querySelector("#container").appendChild(clone);
 }
 
@@ -370,4 +389,10 @@ document.querySelector("#back").addEventListener("click", closePopup);
 
 function closePopup() {
   document.querySelector("#popup").style.display = "none";
+}
+
+function expelledStudents(student) {
+  student.expelled = true;
+  console.log("student expelled");
+  buildList();
 }
