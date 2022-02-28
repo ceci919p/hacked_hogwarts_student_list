@@ -85,6 +85,8 @@ function studentFilter(list) {
       list = list.filter(isRavenclaw);
     } else if (settings.filterBy === "slytherin") {
       list = list.filter(isSlytherin);
+    } else if (settings.filterBy === "prefect") {
+      list = list.filter(isPrefect);
     }
   }
   return list;
@@ -129,6 +131,10 @@ function isExpelled(student) {
 
 function isNotExpelled(student) {
   return !student.expelled;
+}
+
+function isPrefect(student) {
+  return student.prefect;
 }
 
 //------sorting function
