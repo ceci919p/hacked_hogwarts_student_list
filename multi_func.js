@@ -406,7 +406,9 @@ function clickPrefect() {
 
   if (student.prefect === true) {
     student.prefect = false;
+    document.querySelector("[data-field=prefect]").textContent = "⭐";
   } else {
+    document.querySelector("[data-field=prefect]").textContent = "☆";
     tryToMakePrefect(student);
 
     //buildList(); - skal kun bruges hvis vi vil tilsætte ikonerne
