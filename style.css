@@ -11,8 +11,15 @@ main {
   grid-template-rows: auto, auto;
 }
 
+@font-face {
+  font-family: MagicSchool;
+  src: url(fonts/HARRYP__.TTF);
+}
+
 h1 {
   text-align: center;
+  font-family: MagicSchool, sans-serif;
+  font-size: 5rem;
 }
 
 #search_wrapper {
