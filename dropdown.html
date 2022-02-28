@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hacked Hogwarts Student List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header><h1>Hacked Hogwarts Student List</h1></header>
+    <main>
+      <div class="buttons_wrapper">
+        <div id="filter">
+          <select name="filter_options" id="filter_options">
+            <option value="*" data-action="filter">All</option>
+            <option
+              value="gryffindor"
+              data-action="filter"
+              data-filter="gryffindor"
+            >
+              gryffindor
+            </option>
+            <option
+              value="hufflepuff"
+              data-action="filter"
+              data-filter="hufflepuff"
+            >
+              hufflepuff
+            </option>
+            <option
+              value="ravenclaw"
+              data-action="filter"
+              data-filter="ravenclaw"
+            >
+              ravenclaw
+            </option>
+            <option
+              value="slytherin"
+              data-action="filter"
+              data-filter="slytherin"
+            >
+              slytherin
+            </option>
+          </select>
+        </div>
+
+        <div id="sorting">
+          <select name="sorting_options" id="sorting_options">
+            <option
+              value="firstName"
+              data-action="sort"
+              data-sort-direction="asc"
+              data-sort="firstName"
+            >
+              First name
+            </option>
+
+            <option
+              value="lastName"
+              data-action="sort"
+              data-sort-direction="asc"
+              data-sort="lastName"
+            >
+              Last name
+            </option>
+          </select>
+        </div>
+
+        <div id="search_wrapper">
+          <label>placeholder icon</label>
+          <input
+            type="text"
+            name="searchBar"
+            id="searchBar"
+            placeholder="search for a student"
+          />
+        </div>
+      </div>
+
+      <section id="popup">
+        <article>
+          <div class="align_end">
+            <button id="back">X</button>
+          </div>
+          <div class="name_wrapper">
+            <h2 id="popup_firstname"></h2>
+            <h2 id="popup_middlename"></h2>
+            <h2 id="popup_lastname"></h2>
+          </div>
+
+          <p id="popup_nickname"></p>
+          <div class="popup_wrapper">
+            <div class="left_col">
+              <img id="popup_profilepic" src="" alt="" />
+            </div>
+            <div class="right_col">
+              <p id="popup_house"></p>
+              <p id="popup_gender"></p>
+            </div>
+          </div>
+          <!--   <p id="popup_bloodstatus"></p>
+        <button id="prefect_button">prefect</button> -->
+          <!--   <button id="club_button">inquisitorial squad</button> -->
+        </article>
+      </section>
+
+      <section id="container"></section>
+
+      <template id="student">
+        <article>
+          <div>
+            <h2 id="fullname"></h2>
+          </div>
+
+          <img src="" alt="" />
+          <p id="house"></p>
+          <p id="gender"></p>
+          <p id="blood-status"></p>
+          <button id="details">details</button>
+        </article>
+      </template>
+    </main>
+  </body>
+  <script src="dropdown.js"></script>
+</html>
