@@ -8,7 +8,11 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header><h1>Hacked Hogwarts Student List</h1></header>
+    <header>
+      <img src="icons/hogwarts_logo.png" alt="crest" />
+      <h1>Hogwarts</h1>
+      <h2>School of Witchcraft and Wizardry</h2>
+    </header>
     <main>
       <div class="buttons_wrapper">
         <div id="filter">
@@ -128,21 +132,27 @@
 
       <div id="warning_remove_other" class="modal hide">
         <div class="dialog">
-          <button class="closebutton">X</button>
+          <div class="align_end">
+            <button class="closebutton">X</button>
+          </div>
           <h1>Warning!</h1>
           <p>
-            there is already a prefect of this house and this gender. <br />
+            There is already a prefect of this house and this gender. <br />
             Do you want to remove other prefect?
           </p>
-          <button id="removeotherbutton">
-            Remove <span data-field="otherprefect"></span>
-          </button>
+          <div class="align_center">
+            <button id="removeotherbutton">
+              Remove <span data-field="otherprefect"></span>
+            </button>
+          </div>
         </div>
       </div>
 
       <div id="warning_club" class="modal hide">
         <div class="dialog">
-          <button class="clubclosebutton">X</button>
+          <div class="align_end">
+            <button class="clubclosebutton">X</button>
+          </div>
           <h1>Warning!</h1>
           <p>
             Only pureblods or members of Slytherin <br />

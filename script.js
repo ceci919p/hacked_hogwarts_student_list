@@ -397,6 +397,36 @@ function displayStudent(student) {
     .querySelector("#expel")
     .addEventListener("click", () => expelledStudents(student));
 
+  //show prefect badge on article
+  /*  
+  if (student.prefect === true) {
+    clone.querySelector(".prefect_badge").src = "billeder/prefect_true.png";
+  } else {
+    clone.querySelector(".prefect_badge").src = "";
+  } */
+
+  //showhouse but as image and also different color name for each house
+  /*   
+  if (student.house === "Gryffindor") {
+    (clone.querySelector(".article_house").src = "billeder/gryffindor_1.png"),
+      clone.querySelector(".fullname").classList.add("text_color_gryf");
+  } else if (student.house === "Slytherin") {
+    (clone.querySelector(".article_house").src = "billeder/slytherin.png"),
+      clone.querySelector(".fullname").classList.add("text_color_slyth");
+  } else if (student.house === "Ravenclaw") {
+    (clone.querySelector(".article_house").src = "billeder/ravenclaw.png"),
+      clone.querySelector(".fullname").classList.add("text_color_raven");
+  } else if (student.house === "Hufflepuff") {
+    (clone.querySelector(".article_house").src = "billeder/hufflepuff.png"),
+      clone.querySelector(".fullname").classList.add("text_color_huffle");
+  }
+
+  //if student is expelled: hide expel button + remove as prefect + remove prefect badge
+  if (student.expelled === true) {
+    clone.querySelector(".expel_button").classList.add("hidden"),
+      (student.prefect = false),
+      (clone.querySelector(".prefect_badge").src = "");
+  } */
   document.querySelector("#container").appendChild(clone);
 }
 
@@ -562,9 +592,9 @@ function showWarning(student, otherStudent) {
 function closeWarning() {
   //close warning and remove eventlistener
   document.querySelector("#warning_remove_other").classList.add("hide");
-  document
+  /* document
     .querySelector("#warning_remove_other #removeotherbutton")
-    .removeEventListener("click", clickRemoveOther);
+    .removeEventListener("click", clickRemoveOther); */
 }
 
 function tryToMakeMember(student) {
