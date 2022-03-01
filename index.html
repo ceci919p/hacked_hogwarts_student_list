@@ -4,9 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Hacked Hogwarts Student List</title>
-
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -38,6 +36,10 @@
           <button class="filter" data-action="filter" data-filter="prefect">
             Prefects
           </button>
+
+          <button class="filter" data-action="filter" data-filter="club">
+            Inquisitorial Squad
+          </button>
         </div>
 
         <div id="sorting">
@@ -58,22 +60,18 @@
           >
             Last name
           </button>
+
           <button
             data-action="sort"
             data-sort-direction="asc"
             data-sort="house"
           >
-            house
+            House
           </button>
-
-          <!--  <button data-action="sort" data-sort-direction="asc" data-sort="prefects">
-        Prefects
-      </button> -->
         </div>
       </div>
 
       <div id="search_wrapper">
-        <!--    <label>placeholder icon</label> -->
         <input
           type="text"
           name="searchBar"
@@ -101,12 +99,11 @@
             <div class="right_col">
               <p id="popup_house"></p>
               <p id="popup_gender"></p>
-              <button data-field="prefect">☆make prefect</button>
+              <p id="popup_bloodstatus"></p>
+              <button data-field="prefect"></button>
+              <button data-field="club"></button>
             </div>
           </div>
-          <!--   <p id="popup_bloodstatus"></p>
-        <button id="prefect_button">prefect</button> -->
-          <!--   <button id="club_button">inquisitorial squad</button> -->
         </article>
       </section>
 
@@ -122,8 +119,10 @@
           <p id="house"></p>
           <p id="gender"></p>
           <p id="blood-status"></p>
-          <button id="details">details</button>
-          <button id="expel">expeliarmus</button>
+          <div class="article_button_wrapper">
+            <button id="details">details</button>
+            <button id="expel">expeliarmus</button>
+          </div>
         </article>
       </template>
 
@@ -136,8 +135,19 @@
             Do you want to remove other prefect?
           </p>
           <button id="removeotherbutton">
-            Remove <span data-field="otherprefect">other</span>
+            Remove <span data-field="otherprefect"></span>
           </button>
+        </div>
+      </div>
+
+      <div id="warning_club" class="modal hide">
+        <div class="dialog">
+          <button class="clubclosebutton">X</button>
+          <h1>Warning!</h1>
+          <p>
+            Only pureblods or members of Slytherin <br />
+            can be member of inquisitorial Squad!
+          </p>
         </div>
       </div>
     </main>
