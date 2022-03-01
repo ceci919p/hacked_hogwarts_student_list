@@ -52,7 +52,6 @@ function buttonListener() {
   sortButtons.forEach((button) => button.addEventListener("click", selectSort));
 
   //searchBar
-
   const searchBar = document.querySelector("#searchBar");
   searchBar.addEventListener("keyup", searchFunction);
 }
@@ -480,24 +479,29 @@ function showWarning(student, otherStudent) {
   //ad listener to close button
   document
     .querySelector("#warning_remove_other .closebutton")
-    .addEventListener("click", closeWarningOther);
+    .addEventListener("click", closeWarning);
+
+  //show otherStudents name
+
+  document.querySelector("[data-field=otherprefect]").textContent =
+    otherStudent.firstName + " " + otherStudent.lastName;
 
   //add listener to remove other prefect
   document
     .querySelector("#removeotherbutton")
-    .addEventListener("click", onClick);
+    .addEventListener("click", onClickRemove);
 
-  function onClick(event) {
+  function onClickRemove(event) {
     otherStudent.prefect = false;
     makePrefect(student);
-    closeWarningOther();
+    closeWarning();
     document
       .querySelector("#removeotherbutton")
-      .removeEventListener("click", onClick);
+      .removeEventListener("click", onClickRemove);
   }
 }
 
-function closeWarningOther() {
+function closeWarning() {
   //close warning and remove eventlistener
   document.querySelector("#warning_remove_other").classList.add("hide");
   document
