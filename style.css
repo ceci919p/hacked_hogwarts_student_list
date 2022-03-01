@@ -19,16 +19,33 @@ main {
   font-style: normal;
 }
 
+header {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1000px) auto;
+}
+
+header img {
+  padding-top: 2rem;
+  margin: auto;
+  grid-column: 2/3;
+  max-width: 250px;
+}
+
 h1 {
+  grid-column: 2/3;
   text-align: center;
   font-family: MagicFont, sans-serif;
-  font-size: 5rem;
+  font-size: 4rem;
+  margin-bottom: 0;
+  margin-top: 1rem;
 }
 
 h2 {
+  margin-top: 0;
+  grid-column: 2/3;
+  font-size: 2.5rem;
   text-align: center;
   font-family: MagicFont, sans-serif;
-  font-size: 2.5rem;
 }
 
 #searchBar {
@@ -49,8 +66,6 @@ h2 {
   padding-inline: 1rem;
   padding-block: 0.3rem;
   margin-block: 1rem;
-  font-family: MagicFont, sans-serif;
-  font-size: 1.5rem;
 }
 
 main > section {
@@ -93,6 +108,11 @@ article img {
   overflow: scroll;
 }
 
+.align_center {
+  display: flex;
+  align-self: center;
+}
+
 .align_end {
   text-align: end;
   font-weight: 400;
@@ -108,7 +128,9 @@ article img {
   margin: auto;
 }
 
-#back {
+#back,
+button.closebutton,
+button.clubclosebutton {
   background-color: Transparent;
   background-repeat: no-repeat;
   border: none;
@@ -165,7 +187,7 @@ article img {
   position: relative;
 }
 
-button.closebutton {
+/* button.closebutton {
   position: absolute;
   right: -1em;
   top: -1em;
@@ -181,7 +203,7 @@ button.clubclosebutton {
   border-radius: 50%;
   width: 2em;
   height: 2em;
-}
+} */
 
 .dialog h1 {
   margin-top: 0;
