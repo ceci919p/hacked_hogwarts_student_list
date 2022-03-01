@@ -454,7 +454,7 @@ function showDetails(studentData) {
     if (isOtherStudentOfSameGender) {
       console.log("there is already a prefect of this house and this gender");
       //remove 1s in array
-      removeOther(otherStudent);
+      showWarning(otherStudent);
     } else {
       makePrefect(selectedStudent);
     }
@@ -466,9 +466,33 @@ function showDetails(studentData) {
       console.log("student is now prefect");
     }
 
-    function removeOther() {
+    function showWarning() {
       //ask user to ignore or remove other
       document.querySelector("#warning_remove_other").classList.remove("hide");
+
+      //add eventlistenr to close button
+      document
+        .querySelector(".closebutton")
+        .addEventListener("click", closeWarning);
+
+      //add eventlistener #removeotherbutton
+      document
+        .querySelector("#removeotherbutton")
+        .addEventListener("click", removeOtherPrefect(otherStudent));
+    }
+
+    function closeWarning() {
+      document.querySelector("#warning_remove_other").classList.add("hide");
+
+      //remove eventlistener #removeotherbutton
+      document
+        .querySelector("#removeotherbutton")
+        .addEventListener("click", removeOtherPrefect(otherStudent));
+    }
+
+    function removeOtherPrefect(student) {
+      student.prefect = false;
+      console.log("other prefect removed");
     }
   }
 }
