@@ -380,6 +380,64 @@ function displayList(students) {
 
   // build a new list
   students.forEach(displayStudent);
+
+  //number of students in each house
+  let numOfExpelledStudents = allStudents.filter(
+    (student) => student.expelled
+  ).length;
+
+  document.querySelector("#num_expelled_students").textContent =
+    "Expelled Students: " + numOfExpelledStudents;
+
+  //total number of active students (not expelled)
+
+  const activeStudents = allStudents.length - numOfExpelledStudents;
+
+  document.querySelector("#num_active_students").textContent =
+    "Active Students " + activeStudents;
+
+  //Number of students currently displayed
+  let numCurrentDisplay = students.length;
+
+  document.querySelector("#num_current_display").textContent =
+    "Currently displaying " + numCurrentDisplay;
+
+  //Number of students in each house
+  //make empty array
+  let numOfActiveStudents = [];
+
+  //put all students in array except the expelled ones
+  numOfActiveStudents = allStudents.filter((student) => {
+    if (!student.expelled) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+
+  //Gryffindor
+  let numStudentsGryffindor = numOfActiveStudents.filter(isGryffindor).length;
+
+  document.querySelector("#num_gryffindor").textContent =
+    "Gryffindors: " + numStudentsGryffindor;
+
+  //hufflepuff
+  let numStudentsHufflepuff = numOfActiveStudents.filter(isHufflepuff).length;
+
+  document.querySelector("#num_hufflepuff").textContent =
+    "Hufflepuffs: " + numStudentsHufflepuff;
+
+  //Slytherin
+  let numStudentsSlytherin = numOfActiveStudents.filter(isSlytherin).length;
+
+  document.querySelector("#num_slytherin").textContent =
+    "Slytherin: " + numStudentsSlytherin;
+
+  //Ravenclaw
+  let numStudentsRavenclaw = numOfActiveStudents.filter(isRavenclaw).length;
+
+  document.querySelector("#num_ravenclaw").textContent =
+    "Ravenclaw: " + numStudentsRavenclaw;
 }
 
 function displayStudent(student) {
@@ -714,6 +772,8 @@ function hackTheSystem() {
   allStudents.push(newStudent);
   randomizeBloodStatus();
 
+  removeMembership(newStudent);
+
   buildList();
 }
 
@@ -734,6 +794,16 @@ function randomizeBloodStatus() {
       }
     }
   });
+}
+
+function removeMembership(student) {
+  if (student.inqSquad === true) {
+    setTimeout(cancelMembership, 3000); //cancel membership after 3 seconds ------!!!DOES NOT WORK!!!
+  }
+
+  function cancelMembership() {
+    student.inqSquad = false;
+  }
 }
 
 function warningHacking() {
