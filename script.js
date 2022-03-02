@@ -419,14 +419,16 @@ function displayStudent(student) {
   } else if (student.house === "Hufflepuff") {
     (clone.querySelector(".article_house").src = "billeder/hufflepuff.png"),
       clone.querySelector(".fullname").classList.add("text_color_huffle");
-  }
-
-  //if student is expelled: hide expel button + remove as prefect + remove prefect badge
-  if (student.expelled === true) {
-    clone.querySelector(".expel_button").classList.add("hidden"),
-      (student.prefect = false),
-      (clone.querySelector(".prefect_badge").src = "");
   } */
+
+  //if student is expelled: hide expel button
+
+  /*  if (student.expelled === true) {
+    clone.querySelector("#expel").classList.add("hidden");
+    /*    (student.prefect = false),
+      (clone.querySelector(".prefect_badge").src = ""); 
+  } */
+
   document.querySelector("#container").appendChild(clone);
 }
 
@@ -462,6 +464,20 @@ function showDetails(student) {
   } else {
     document.querySelector('[data-field="club"]').textContent =
       "🎖 Not Inquisitorial Member";
+  }
+
+  if (student.house === "Gryffindor") {
+    document.querySelector("#popup_article").style.backgroundColor = "#740001";
+    document.querySelector(".name_wrapper").style.color = "#e2b125";
+  } else if (student.house === "Slytherin") {
+    document.querySelector("#popup_article").style.backgroundColor = "#1A472A";
+    document.querySelector(".name_wrapper").style.color = "#ffff";
+  } else if (student.house === "Hufflepuff") {
+    document.querySelector("#popup_article").style.backgroundColor = "#E2B125";
+    document.querySelector(".name_wrapper").style.color = "#000";
+  } else if (student.house === "Ravenclaw") {
+    document.querySelector("#popup_article").style.backgroundColor = "#0E1A40";
+    document.querySelector(".name_wrapper").style.color = "#ffff";
   }
 
   //eventlistener to closePopup

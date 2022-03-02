@@ -1,3 +1,20 @@
+/*TO DO: MAKE PRIMARY COLORS*/
+
+/* html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 140px;
+
+    --primary: #f2c849;
+    --secondary: #e7e1df;
+    --tertiary: #ea819a;
+    --accent: #f3f3f5;
+    --text: #404042;
+}
+
+body {
+    background-color: var(--accent);
+} */
+
 body {
   margin: 0;
   padding: 0;
@@ -66,6 +83,14 @@ h2 {
   padding-inline: 1rem;
   padding-block: 0.3rem;
   margin-block: 1rem;
+  background-color: transparent;
+  border: none;
+}
+
+#sorting button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #e2b125;
 }
 
 main > section {
@@ -97,6 +122,22 @@ article img {
   margin-inline: 2rem;
 }
 
+.gryffindor {
+  color: #e2b125;
+}
+
+.slytherin {
+  color: white;
+}
+
+.rawenclaw {
+  color: white;
+}
+
+.hufflepuff {
+  color: black;
+}
+
 #popup {
   width: 100vw;
   height: 100vh;
@@ -122,11 +163,11 @@ article img {
   text-align: center;
 }
 
-#popup article {
-  background-color: white;
+#popup_article {
   width: 65%;
   margin: auto;
   border: none;
+  color: white;
 }
 
 #back,
