@@ -15,6 +15,7 @@ const Student = {
   prefect: false,
   bloodstatus: "",
   inqSquad: false,
+  hacker: false,
 };
 
 //let filterBy = "all";
@@ -49,6 +50,11 @@ function buttonListener() {
   const filterButtons = document.querySelectorAll('[data-action="filter"]');
   //get sortingbuttons
   const sortButtons = document.querySelectorAll('[data-action="sort"]');
+
+  //hack button
+  document
+    .querySelector("#hack_button")
+    .addEventListener("click", hackTheSystem);
 
   filterButtons.forEach((button) =>
     button.addEventListener("click", selectFilter)
@@ -432,6 +438,17 @@ function displayStudent(student) {
   document.querySelector("#container").appendChild(clone);
 }
 
+function expelledStudents(student) {
+  if (student.hacker === false) {
+    student.expelled = true;
+  } else {
+    student.expelled = false;
+    warningHacking();
+  }
+
+  buildList();
+}
+
 function showDetails(student) {
   console.log(student);
 
@@ -648,8 +665,71 @@ function showClubWarning() {
   }
 }
 
-function expelledStudents(student) {
-  student.expelled = true;
+function hackTheSystem() {
+  console.log("system is now hacked");
+
+  //remove eventlistener
+  document
+    .querySelector("#hack_button")
+    .removeEventListener("click", hackTheSystem);
+
+  //inject myself
+  const newStudent = {
+    firstName: "Cecilie",
+    middleName: "Jasmin",
+    nickName: "",
+    gender: "girl",
+    lastName: "Jørgensen",
+    profilePic: "images/default.png",
+    house: "Hufflepuff",
+    prefect: false,
+    expelled: false,
+    bloodstatus: "Muggleborn",
+    inqSquad: false,
+    hacker: true,
+  };
+
+  allStudents.push(newStudent);
+  randomizeBloodStatus();
 
   buildList();
+}
+
+function randomizeBloodStatus() {
+  allStudents.forEach((student) => {
+    if (student.bloodstatus === "Muggleborn") {
+      student.bloodstatus = "Pureblood";
+    } else if (student.bloodstatus === "Halfblood") {
+      student.bloodstatus = "Pureblood";
+    } else {
+      let bloodStatusRandom = Math.floor(Math.random() * 3);
+      if (bloodStatusRandom === 0) {
+        student.bloodstatus = "Pureblood";
+      } else if (bloodStatusRandom === 1) {
+        student.bloodstatus = "Halfblood";
+      } else {
+        student.bloodstatus = "Muggleborn";
+      }
+    }
+  });
+}
+
+function warningHacking() {
+  //show warning
+  document.querySelector("#warning_hacking").classList.remove("hide");
+
+  //ad listener to close button
+  document
+    .querySelector(".hackingclosebutton")
+    .addEventListener("click", closeHackingWarning);
+}
+
+function closeHackingWarning() {
+  //hide warning
+  document.querySelector("#warning_hacking").classList.add("hide");
+
+  //remove listener to close button
+  document
+    .querySelector(".hackingclosebutton")
+    .removeEventListener("click", closeHackingWarning);
 }
