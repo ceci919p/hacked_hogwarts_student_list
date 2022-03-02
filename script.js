@@ -435,6 +435,18 @@ function displayStudent(student) {
       (clone.querySelector(".prefect_badge").src = ""); 
   } */
 
+  if (student.prefect === true) {
+    clone.querySelector("#is_prefect").classList.remove("hide");
+  } else {
+    clone.querySelector("#is_prefect").classList.add("hide");
+  }
+
+  if (student.inqSquad === true) {
+    clone.querySelector("#is_member").classList.remove("hide");
+  } else {
+    clone.querySelector("#is_member").classList.add("hide");
+  }
+
   document.querySelector("#container").appendChild(clone);
 }
 
@@ -537,12 +549,18 @@ function showDetails(student) {
 
 function clickPrefect(student) {
   if (student.prefect === true) {
-    document.querySelector("[data-field=prefect]").textContent = "☆ prefect";
     student.prefect = false;
   } else {
     tryToMakePrefect(student);
 
     //buildList(); - skal kun bruges hvis vi vil tilsætte ikonerne
+  }
+  buildList();
+
+  if (student.prefect === true) {
+    document.querySelector("[data-field=prefect]").textContent = "⭐ prefect";
+  } else {
+    document.querySelector("[data-field=prefect]").textContent = "☆ prefect";
   }
 }
 
@@ -555,6 +573,14 @@ function clickInqSquad(student) {
     tryToMakeMember(student);
 
     //buildList(); - skal kun bruges hvis vi vil tilsætte ikonerne
+  }
+  buildList();
+  if (student.inqSquad === true) {
+    document.querySelector('[data-field="club"]').textContent =
+      "🏅 Inquisitorial Member";
+  } else {
+    document.querySelector('[data-field="club"]').textContent =
+      "🎖 Not Inquisitorial Member";
   }
 }
 
@@ -590,7 +616,6 @@ function tryToMakePrefect(selectedStudent) {
 
 function makePrefect(student) {
   student.prefect = true;
-  document.querySelector("[data-field=prefect]").textContent = "⭐ prefect";
 }
 
 function showWarning(student, otherStudent) {
@@ -634,13 +659,10 @@ function tryToMakeMember(student) {
   if (student.house === "Slytherin" || student.bloodstatus === "Pureblood") {
     console.log("congratz, the student is now a member!");
     student.inqSquad = true;
-    document.querySelector('[data-field="club"]').textContent =
-      "🏅 Inquisitorial Member";
   } else {
     student.inqSquad = false;
     console.log("the student cannot be a member!");
-    document.querySelector('[data-field="club"]').textContent =
-      "🎖 Not Inquisitorial Member";
+
     showClubWarning();
   }
 }
