@@ -18,7 +18,14 @@ body {
 body {
   margin: 0;
   padding: 0;
-  background-color: #e7e6e1;
+  background-color: lightgray;
+
+  /*   background-image: url("stars.gif");
+  background-size: 100%;
+  background-repeat: repeat-y;
+  background-attachment: fixed;
+  height: 100%;
+  width: 100%; */
 }
 
 main {
@@ -63,6 +70,15 @@ h2 {
   font-size: 2.5rem;
   text-align: center;
   font-family: MagicFont, sans-serif;
+}
+
+#counter_display {
+  grid-column: 2/3;
+}
+
+.counter_wrapper {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 #searchBar {
