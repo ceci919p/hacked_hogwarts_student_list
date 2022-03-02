@@ -79,6 +79,7 @@ h2 {
 .counter_wrapper {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 #searchBar {
@@ -253,24 +254,6 @@ button.clubclosebutton {
   background-color: white;
   position: relative;
 }
-
-/* button.closebutton {
-  position: absolute;
-  right: -1em;
-  top: -1em;
-  border-radius: 50%;
-  width: 2em;
-  height: 2em;
-}
-
-button.clubclosebutton {
-  position: absolute;
-  right: -1em;
-  top: -1em;
-  border-radius: 50%;
-  width: 2em;
-  height: 2em;
-} */
 
 .dialog h1 {
   margin-top: 0;
