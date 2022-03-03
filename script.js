@@ -474,20 +474,16 @@ function displayStudent(student) {
   } */
 
   //showhouse but as image and also different color name for each house
-  /*   
+
   if (student.house === "Gryffindor") {
-    (clone.querySelector(".article_house").src = "billeder/gryffindor_1.png"),
-      clone.querySelector(".fullname").classList.add("text_color_gryf");
+    clone.querySelector(".house_badge").src = "icons/gryffindor.png";
   } else if (student.house === "Slytherin") {
-    (clone.querySelector(".article_house").src = "billeder/slytherin.png"),
-      clone.querySelector(".fullname").classList.add("text_color_slyth");
+    clone.querySelector(".house_badge").src = "icons/slytherin.png";
   } else if (student.house === "Ravenclaw") {
-    (clone.querySelector(".article_house").src = "billeder/ravenclaw.png"),
-      clone.querySelector(".fullname").classList.add("text_color_raven");
+    clone.querySelector(".house_badge").src = "icons/ravenclaw.png";
   } else if (student.house === "Hufflepuff") {
-    (clone.querySelector(".article_house").src = "billeder/hufflepuff.png"),
-      clone.querySelector(".fullname").classList.add("text_color_huffle");
-  } */
+    clone.querySelector(".house_badge").src = "icons/hufflepuff.png";
+  }
 
   //if student is expelled: hide expel button
 
@@ -559,15 +555,19 @@ function showDetails(student) {
 
   if (student.house === "Gryffindor") {
     document.querySelector("#popup_article").style.backgroundColor = "#740001";
+    document.querySelector(".house_badge").src = "icons/gryffindor.png";
     document.querySelector(".name_wrapper").style.color = "#e2b125";
   } else if (student.house === "Slytherin") {
     document.querySelector("#popup_article").style.backgroundColor = "#1A472A";
+    document.querySelector(".house_badge").src = "icons/slytherin.png";
     document.querySelector(".name_wrapper").style.color = "#ffff";
   } else if (student.house === "Hufflepuff") {
     document.querySelector("#popup_article").style.backgroundColor = "#E2B125";
+    document.querySelector(".house_badge").src = "icons/hufflepuff.png";
     document.querySelector(".name_wrapper").style.color = "#000";
   } else if (student.house === "Ravenclaw") {
     document.querySelector("#popup_article").style.backgroundColor = "#0E1A40";
+    document.querySelector(".house_badge").src = "icons/ravenclaw.png";
     document.querySelector(".name_wrapper").style.color = "#ffff";
   }
 
