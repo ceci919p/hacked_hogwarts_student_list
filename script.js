@@ -476,17 +476,22 @@ function displayStudent(student) {
   //show house badges and color border for each house
 
   if (student.house === "Gryffindor") {
-    clone.querySelector("article").style.borderColor = "#a60321";
+    clone.querySelector("article").style.backgroundColor = "#a60321";
     clone.querySelector(".house_badge").src = "icons/gryffindor.png";
+    clone.querySelector("#expel").style.backgroundColor = "#000";
+    clone.querySelector("article").style.borderColor = "#e1b024";
   } else if (student.house === "Slytherin") {
-    clone.querySelector("article").style.borderColor = "#1f5532";
+    clone.querySelector("article").style.backgroundColor = "#1f5532";
     clone.querySelector(".house_badge").src = "icons/slytherin.png";
+    clone.querySelector("article").style.borderColor = "#c0c0c0";
   } else if (student.house === "Ravenclaw") {
-    clone.querySelector("article").style.borderColor = "#2b4894";
+    clone.querySelector("article").style.backgroundColor = "#2b4894";
+    clone.querySelector("article").style.borderColor = "#c0c0c0";
     clone.querySelector(".house_badge").src = "icons/ravenclaw.png";
   } else if (student.house === "Hufflepuff") {
-    clone.querySelector("article").style.borderColor = "#ffca00";
+    clone.querySelector("article").style.backgroundColor = "#ffca00";
     clone.querySelector(".house_badge").src = "icons/hufflepuff.png";
+    clone.querySelector("article").style.borderColor = "#000";
   }
 
   //hide expel button if student is already expelled

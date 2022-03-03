@@ -70,6 +70,15 @@ h2 {
   color: white;
 }
 
+h3 {
+  font-family: MagicFont, sans-serif;
+}
+
+p {
+  font-family: Open Sans, sans-serif;
+  font-weight: bolder;
+}
+
 /*----------------------header*/
 
 header {
@@ -102,12 +111,16 @@ header img {
 
 #counter_display {
   grid-column: 2/3;
+  color: #bb9550;
 }
 
 .counter_wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+.star {
+  margin-top: 10px;
 }
 
 /*--------------------searchbar*/
@@ -119,6 +132,33 @@ header img {
   padding: 5px 10px;
   font-size: 12px;
 }
+
+#search_wrapper {
+  margin-inline: auto;
+  margin-block: auto;
+}
+
+/*-----------dropdown*/
+
+/* select {
+  background-color: #2f223a;
+  padding: 0.7rem;
+  cursor: pointer;
+  color: white;
+  border-radius: 4px;
+  width: 250px;
+  margin-block: 1rem;
+  margin-inline: 1rem;
+}
+
+select:active {
+  padding: 0.7rem;
+  padding: 7rem;
+}
+
+#filter {
+  width: 200px;
+} */
 
 /*----------sorting and filtering buttons*/
 
@@ -144,6 +184,12 @@ header img {
 
 /*-----------------------student listview*/
 
+#container {
+  background-color: white;
+  border: 6px solid #bb9550;
+  border-radius: 23px;
+}
+
 section {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -157,7 +203,7 @@ article {
   background-color: white;
   /*  box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.3); */
   border-radius: 12px;
-  border: solid black 7px;
+  border: 7px solid #bb9550;
 }
 
 #fullname {
@@ -180,6 +226,7 @@ article {
 
 .club_badges {
   display: flex;
+  margin-top: 5px;
 }
 
 article img {
@@ -189,6 +236,7 @@ article img {
 
 .short_info {
   padding: 1rem;
+  color: white;
 }
 
 .gryffindor {
@@ -211,9 +259,13 @@ article img {
   display: flex;
 }
 
-#is_member,
-#is_prefect {
-  font-size: 35px;
+#is_prefect img {
+  width: 35px;
+}
+
+#is_member img {
+  width: 35px;
+  margin-top: 6px;
 }
 
 #details {
@@ -255,8 +307,7 @@ article img {
 }
 
 .align_center {
-  display: flex;
-  align-self: center;
+  text-align: center;
 }
 
 .align_end {
@@ -300,6 +351,11 @@ button.clubclosebutton {
 
 .name_wrapper {
   display: flex;
+  flex-wrap: wrap;
+}
+
+#popup article h2 {
+  margin-bottom: 0;
 }
 
 #popup_firstname {
@@ -324,6 +380,8 @@ button.clubclosebutton {
   display: none;
 }
 
+/*---------warnings------*/
+
 .modal {
   position: fixed;
   top: 0;
@@ -345,7 +403,23 @@ button.clubclosebutton {
 }
 
 .dialog h1 {
+  color: black;
   margin-top: 0;
+}
+
+#removeotherbutton {
+  background-color: black;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  padding-inline: 1.5rem;
+  padding-block: 0.3rem;
+  font-family: MagicFont, sans-serif;
+  font-size: 1.5rem;
+  margin-top: 1rem;
 }
 
 /* 

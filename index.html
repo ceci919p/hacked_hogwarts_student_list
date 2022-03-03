@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="icons/hogwarts_logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <title>Hacked Hogwarts Student List</title>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -16,6 +19,19 @@
       <button id="hack_button">Hack the system</button>
     </header>
     <main>
+
+
+ <div id="search_wrapper">
+       <img src="icons/search.png" alt="search">
+        <input
+          type="text"
+          name="searchBar"
+          id="searchBar"
+          placeholder="Search for a Student"
+        />
+      </div>
+
+
       <div class="buttons_wrapper">
         <div id="filter">
           <label for="sortby">Filter by:</label>
@@ -77,27 +93,9 @@
         </div>
       </div>
 
-      <div id="counter_display">
-        <div class="counter_wrapper">
-          <p id="num_active_students"></p>
-          <p id="num_expelled_students"></p>
-          <p id="num_current_display"></p>
-          <p id="num_gryffindor"></p>
-          <p id="num_slytherin"></p>
-          <p id="num_ravenclaw"></p>
-          <p id="num_hufflepuff"></p>
-        </div>
-      </div>
+    
 
-      <div id="search_wrapper">
-       <img src="icons/search3.png" alt="search">
-        <input
-          type="text"
-          name="searchBar"
-          id="searchBar"
-          placeholder="search for a student"
-        />
-      </div>
+     
 
       <section id="popup">
         <article id="popup_article">
@@ -132,6 +130,24 @@
           </div>
         </article>
       </section>
+        <div id="counter_display">
+          <div>☆</div>
+        <div class="counter_wrapper">
+           <div>☆</div>
+           
+          <p id="num_active_students"></p>
+          <p id="num_expelled_students"></p>
+          <p id="num_current_display"></p>
+          <p id="num_gryffindor"></p>
+          <p id="num_slytherin"></p>
+          <p id="num_ravenclaw"></p>
+          <p id="num_hufflepuff"></p>
+           <div class="star">☆</div>
+                 <div >☆</div>
+        </div>
+        <div>☆</div>
+        
+      </div>
 
       <section id="container"></section>
 
@@ -149,8 +165,8 @@
               <img class="house_badge" src="" alt="" />
              
               <div class="club_badges">
-               <div id="is_prefect" class="hidden">⭐</div>
-                <div id="is_member" class="hidden">🏅</div>
+               <div id="is_prefect" class="hidden"><img src="icons/prefect.png" alt="prefect"></div>
+                <div id="is_member" class="hidden"><img src="icons/inqsquad.png" alt="inqsquad"></div>
                 </div>
             </div>
            
