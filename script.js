@@ -97,7 +97,8 @@ function prepareStudents() {
     //put student in the allStudents array
     allStudents.push(student);
   });
-  displayList(allStudents);
+  // displayList(allStudents);
+  buildList();
 }
 
 function getFirstName(fullname) {
