@@ -455,10 +455,10 @@ function displayStudent(student) {
   clone.querySelector("#fullname").textContent =
     student.firstName + " " + student.lastName;
 
-  clone.querySelector("#house").textContent = student.house;
-  clone.querySelector("#gender").textContent = student.gender;
+  clone.querySelector("#house").innerHTML = "<b>House: </b>" + student.house;
+  clone.querySelector("#gender").innerHTML = "<b>Gender: </b>" + student.gender;
   clone
-    .querySelector("#details")
+    .querySelector(".see_details")
     .addEventListener("click", () => showDetails(student));
 
   clone
@@ -494,15 +494,15 @@ function displayStudent(student) {
   } */
 
   if (student.prefect === true) {
-    clone.querySelector("#is_prefect").classList.remove("hide");
+    clone.querySelector("#is_prefect").classList.remove("hidden");
   } else {
-    clone.querySelector("#is_prefect").classList.add("hide");
+    clone.querySelector("#is_prefect").classList.add("hidden");
   }
 
   if (student.inqSquad === true) {
-    clone.querySelector("#is_member").classList.remove("hide");
+    clone.querySelector("#is_member").classList.remove("hidden");
   } else {
-    clone.querySelector("#is_member").classList.add("hide");
+    clone.querySelector("#is_member").classList.add("hidden");
   }
 
   document.querySelector("#container").appendChild(clone);

@@ -151,23 +151,35 @@ article {
   border: solid black 7px;
 }
 
+#fullname {
+  margin-block: 1rem;
+}
+
 .house_badge {
   max-width: 50px;
   margin: 0;
+  grid-column: 2/3;
+  grid-row: 1;
 }
 
 .pic_and_house {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: auto auto;
   justify-content: center;
+  grid-template-rows: auto auto;
 }
 
-article #article_button_wrapper {
-  justify-self: end;
+.club_badges {
+  display: flex;
 }
 
 article img {
   margin-right: 10px;
+  grid-row: 1/3;
+}
+
+.short_info {
+  padding: 1rem;
 }
 
 .gryffindor {
@@ -192,7 +204,34 @@ article img {
 
 #is_member,
 #is_prefect {
-  font-size: 50px;
+  font-size: 35px;
+}
+
+#details {
+  background-color: black;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  padding-inline: 1.5rem;
+  padding-block: 0.3rem;
+}
+
+#expel {
+  background-color: rgb(161, 48, 48);
+  border: none;
+  border-radius: 3px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  padding-inline: 1.5rem;
+  padding-block: 0.3rem;
+  font-family: MagicFont, sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 #popup {
@@ -270,6 +309,10 @@ button.clubclosebutton {
 
 .hide {
   visibility: hidden;
+}
+
+.hidden {
+  display: none;
 }
 
 .modal {
