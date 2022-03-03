@@ -473,25 +473,28 @@ function displayStudent(student) {
     clone.querySelector(".prefect_badge").src = "";
   } */
 
-  //showhouse but as image and also different color name for each house
+  //show house badges and color border for each house
 
   if (student.house === "Gryffindor") {
+    clone.querySelector("article").style.borderColor = "#a60321";
     clone.querySelector(".house_badge").src = "icons/gryffindor.png";
   } else if (student.house === "Slytherin") {
+    clone.querySelector("article").style.borderColor = "#1f5532";
     clone.querySelector(".house_badge").src = "icons/slytherin.png";
   } else if (student.house === "Ravenclaw") {
+    clone.querySelector("article").style.borderColor = "#2b4894";
     clone.querySelector(".house_badge").src = "icons/ravenclaw.png";
   } else if (student.house === "Hufflepuff") {
+    clone.querySelector("article").style.borderColor = "#ffca00";
     clone.querySelector(".house_badge").src = "icons/hufflepuff.png";
   }
 
-  //if student is expelled: hide expel button
+  //hide expel button if student is already expelled
 
-  /*  if (student.expelled === true) {
+  if (student.expelled === true) {
     clone.querySelector("#expel").classList.add("hidden");
-    /*    (student.prefect = false),
-      (clone.querySelector(".prefect_badge").src = ""); 
-  } */
+    /* (student.prefect = false), (clone.querySelector(".prefect_badge").src = ""); */
+  }
 
   if (student.prefect === true) {
     clone.querySelector("#is_prefect").classList.remove("hidden");
@@ -773,8 +776,8 @@ function hackTheSystem() {
     firstName: "Cecilie",
     middleName: "Jasmin",
     nickName: "",
-    gender: "girl",
-    lastName: "Jørgensen",
+    gender: "Girl",
+    lastName: "Joergensen",
     profilePic: "images/default.png",
     house: "Hufflepuff",
     prefect: false,
