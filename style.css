@@ -28,6 +28,7 @@ body {
   width: 100%; */
 }
 
+/*----------------------main grid*/
 main {
   display: grid;
   grid-template-columns: auto minmax(0, 1000px) auto;
@@ -35,24 +36,18 @@ main {
   grid-template-rows: auto, auto;
 }
 
+/*placing content in the middle of grid*/
+main > section {
+  grid-column: 2/3;
+}
+
+/*----------------------typography*/
 @font-face {
   font-family: MagicFont;
   src: url("fonts/harryp__-webfont.woff2") format("woff2"),
     url("fonts/harryp__-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
-}
-
-header {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1000px) auto;
-}
-
-header img {
-  padding-top: 2rem;
-  margin: auto;
-  grid-column: 2/3;
-  max-width: 250px;
 }
 
 h1 {
@@ -72,6 +67,30 @@ h2 {
   font-family: MagicFont, sans-serif;
 }
 
+/*----------------------header*/
+
+header {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1000px) auto;
+}
+
+header img {
+  padding-top: 2rem;
+  margin: auto;
+  grid-column: 2/3;
+  max-width: 250px;
+}
+
+/*--------------------hack button*/
+
+#hack_button {
+  grid-column: 2/3;
+  max-width: 150px;
+  margin-inline: auto;
+}
+
+/*--------------------counter display*/
+
 #counter_display {
   grid-column: 2/3;
 }
@@ -82,6 +101,8 @@ h2 {
   justify-content: space-evenly;
 }
 
+/*--------------------searchbar*/
+
 #searchBar {
   height: 32px;
   border-radius: 3px;
@@ -89,6 +110,8 @@ h2 {
   padding: 5px 10px;
   font-size: 12px;
 }
+
+/*----------sorting and filtering buttons*/
 
 .buttons_wrapper,
 #search_wrapper {
@@ -110,9 +133,7 @@ h2 {
   color: #e2b125;
 }
 
-main > section {
-  grid-column: 2/3;
-}
+/*-----------------------student listview*/
 
 section {
   display: grid;
@@ -120,7 +141,7 @@ section {
 }
 
 article {
-  display: grid;
+  /* display: grid; */
   margin: 1rem;
   padding: 1rem;
   cursor: pointer;
@@ -218,10 +239,16 @@ button.clubclosebutton {
   font-size: 16px;
 }
 
-.popup_wrapper {
+/*-----------------------student popup*/
+/* .popup_wrapper {
   display: grid;
-  grid-template-columns: auto 1fr;
-}
+  grid-template-columns: auto 0.7fr 1fr;
+} */
+
+/* .buttons_align {
+  margin-inline: auto;
+  margin-block: auto;
+} */
 
 .name_wrapper {
   display: flex;

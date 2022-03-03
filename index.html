@@ -13,6 +13,7 @@
       <img src="icons/hogwarts_logo.png" alt="crest" />
       <h1>Hogwarts</h1>
       <h2>School of Witchcraft and Wizardry</h2>
+      <button id="hack_button">Hack the system</button>
     </header>
     <main>
       <div class="buttons_wrapper">
@@ -102,24 +103,30 @@
           <div class="align_end">
             <button id="back">X</button>
           </div>
-          <div class="name_wrapper">
-            <h2 id="popup_firstname"></h2>
-            <h2 id="popup_middlename"></h2>
-            <h2 id="popup_lastname"></h2>
-          </div>
-
-          <p id="popup_nickname"></p>
-          <div class="popup_wrapper">
-            <div class="left_col">
-              <img id="popup_profilepic" src="" alt="" />
+          <div class="align_popup">
+            <div class="name_wrapper">
+              <h2 id="popup_firstname"></h2>
+              <h2 id="popup_middlename"></h2>
+              <h2 id="popup_lastname"></h2>
             </div>
-            <div class="right_col">
-              <img class="house_badge" src="" alt="" />
-              <p id="popup_house"></p>
-              <p id="popup_gender"></p>
-              <p id="popup_bloodstatus"></p>
-              <button data-field="prefect"></button>
-              <button data-field="inqSquad"></button>
+
+            <p id="popup_nickname"></p>
+            <div class="popup_wrapper">
+              <div class="left_col">
+                <img id="popup_profilepic" src="" alt="" />
+                <img class="house_badge" src="" alt="" />
+              </div>
+              <div class="middle_col">
+                <p id="popup_house"></p>
+                <p id="popup_gender"></p>
+                <p id="popup_bloodstatus"></p>
+              </div>
+              <div class="right_col"></div>
+
+              <div class="buttons_align">
+                <button data-field="prefect"></button>
+                <button data-field="inqSquad"></button>
+              </div>
             </div>
           </div>
         </article>
@@ -191,8 +198,6 @@
           <p>S̶̡͘ỏ̴̖r̸͙͠R̵͖̿ý̴̪ ̷̪̌y̸̼̋0̵͔͝u̵̮͐ ̴̢̄C̷̦̽ą̷̇n̵̖͠'̶̛̙T̷̥͘ ̵̺͝D̴͝ͅo̴̳̽ ̴͕̐Ț̶͝H̴̹͌ä̸̝́Ṱ̴͝</p>
         </div>
       </div>
-
-      <button id="hack_button">Hack the system</button>
     </main>
   </body>
   <script src="script.js"></script>
