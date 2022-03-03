@@ -2,6 +2,9 @@
 
 window.addEventListener("DOMContentLoaded", start);
 
+//global variable
+let hacked = false;
+
 //create student object
 const Student = {
   firstName: "",
@@ -547,10 +550,10 @@ function showDetails(student) {
   }
 
   if (student.inqSquad === true) {
-    document.querySelector('[data-field="club"]').textContent =
+    document.querySelector('[data-field="inqSquad"]').textContent =
       "🏅 Inquisitorial Member";
   } else {
-    document.querySelector('[data-field="club"]').textContent =
+    document.querySelector('[data-field="inqSquad"]').textContent =
       "🎖 Not Inquisitorial Member";
   }
 
@@ -582,7 +585,7 @@ function showDetails(student) {
 
   //eventlistener to inqSquad
   document
-    .querySelector('[data-field="club"]')
+    .querySelector('[data-field="inqSquad"]')
     .addEventListener("click", clickInqSquadCallBack);
 
   function clickInqSquadCallBack(event) {
@@ -601,7 +604,7 @@ function showDetails(student) {
       .removeEventListener("click", clickPrefectCallBack);
 
     document
-      .querySelector('[data-field="club"]')
+      .querySelector('[data-field="inqSquad"]')
       .removeEventListener("click", clickInqSquadCallBack);
   }
 }
@@ -626,7 +629,7 @@ function clickPrefect(student) {
 function clickInqSquad(student) {
   if (student.inqSquad === true) {
     student.inqSquad = false;
-    document.querySelector('[data-field="club"]').textContent =
+    document.querySelector('[data-field="inqSquad"]').textContent =
       "🎖 Not Inquisitorial Member";
   } else {
     tryToMakeMember(student);
@@ -635,10 +638,10 @@ function clickInqSquad(student) {
   }
   buildList();
   if (student.inqSquad === true) {
-    document.querySelector('[data-field="club"]').textContent =
+    document.querySelector('[data-field="inqSquad"]').textContent =
       "🏅 Inquisitorial Member";
   } else {
-    document.querySelector('[data-field="club"]').textContent =
+    document.querySelector('[data-field="inqSquad"]').textContent =
       "🎖 Not Inquisitorial Member";
   }
 }
@@ -718,6 +721,15 @@ function tryToMakeMember(student) {
   if (student.house === "Slytherin" || student.bloodstatus === "Pureblood") {
     console.log("congratz, the student is now a member!");
     student.inqSquad = true;
+    if (hacked === true) {
+      setTimeout(cancelMembership, 2000, student);
+      function cancelMembership(student) {
+        student.inqSquad = false;
+        document.querySelector('[data-field="inqSquad"]').textContent =
+          "🎖 Not Inquisitorial Member";
+        buildList();
+      }
+    }
   } else {
     student.inqSquad = false;
     console.log("the student cannot be a member!");
@@ -748,6 +760,8 @@ function showClubWarning() {
 
 function hackTheSystem() {
   console.log("system is now hacked");
+
+  hacked = true;
 
   //remove eventlistener
   document
@@ -804,6 +818,9 @@ function removeMembership(student) {
 
   function cancelMembership() {
     student.inqSquad = false;
+
+    document.querySelector('[data-field="inqSquad"]').textContent =
+      "🎖 Not Inquisitorial Member";
   }
 }
 
