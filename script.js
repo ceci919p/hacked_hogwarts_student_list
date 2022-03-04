@@ -41,6 +41,7 @@ const url2 = "https://petlatkea.dk/2021/hogwarts/families.json";
 let hogwartsData;
 let bloodData;
 
+//delegator to other functions
 async function start() {
   buttonListener();
   await loadJSON();
@@ -80,7 +81,6 @@ async function loadJSONFamilies() {
   bloodData = await jsonDataFamilies.json();
 }
 
-//delegator to other functions
 function prepareStudents() {
   hogwartsData.forEach((stud) => {
     const student = Object.create(Student);
@@ -476,22 +476,26 @@ function displayStudent(student) {
   //show house badges and color border for each house
 
   if (student.house === "Gryffindor") {
-    clone.querySelector("article").style.backgroundColor = "#a60321";
+    clone.querySelector("article").style.backgroundColor =
+      "rgba(166, 3, 33, 0.76)";
     clone.querySelector(".house_badge").src = "icons/gryffindor.png";
     clone.querySelector("#expel").style.backgroundColor = "#000";
-    clone.querySelector("article").style.borderColor = "#e1b024";
+    /*  clone.querySelector("article").style.borderColor = "#e1b024"; */
   } else if (student.house === "Slytherin") {
-    clone.querySelector("article").style.backgroundColor = "#1f5532";
+    clone.querySelector("article").style.backgroundColor =
+      "rgba(56, 153, 90, 0.76)";
     clone.querySelector(".house_badge").src = "icons/slytherin.png";
-    clone.querySelector("article").style.borderColor = "#c0c0c0";
+    /*  clone.querySelector("article").style.borderColor = "#c0c0c0"; */
   } else if (student.house === "Ravenclaw") {
-    clone.querySelector("article").style.backgroundColor = "#2b4894";
-    clone.querySelector("article").style.borderColor = "#c0c0c0";
+    clone.querySelector("article").style.backgroundColor =
+      "rgba(43, 72, 148, 0.74)";
+    /*   clone.querySelector("article").style.borderColor = "#c0c0c0"; */
     clone.querySelector(".house_badge").src = "icons/ravenclaw.png";
   } else if (student.house === "Hufflepuff") {
-    clone.querySelector("article").style.backgroundColor = "#ffca00";
+    clone.querySelector("article").style.backgroundColor =
+      "rgba(255, 202, 0, 0.75)";
     clone.querySelector(".house_badge").src = "icons/hufflepuff.png";
-    clone.querySelector("article").style.borderColor = "#000";
+    /*     clone.querySelector("article").style.borderColor = "#000"; */
   }
 
   //hide expel button if student is already expelled

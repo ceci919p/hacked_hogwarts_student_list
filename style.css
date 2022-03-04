@@ -15,18 +15,20 @@ body {
     background-color: var(--accent);
 } */
 
+/*transition duration*/
+
 body {
   margin: 0;
   padding: 0;
-  /*   background-color: lightgray; */
-  background-color: #403077;
+  /* background-color: lightgray; */
+  /*   background-color: #403077; */
 
-  /*   background-image: url("stars.gif");
-  background-size: 100%;
-  background-repeat: repeat-y;
+  background-image: url("stars.gif");
+  /*   background-size: 100%; */
+  /* background-repeat: repeat-y; */
   background-attachment: fixed;
   height: 100%;
-  width: 100%; */
+  width: 100%;
 }
 
 /*----------------------main grid*/
@@ -84,12 +86,6 @@ p {
 header {
   display: grid;
   grid-template-columns: auto minmax(0, 1000px) auto;
-  background-image: url("stars.gif");
-  background-size: 100%;
-  background-repeat: repeat-y;
-  background-attachment: fixed;
-  height: 100%;
-  width: 100%;
 }
 
 header img {
@@ -111,7 +107,7 @@ header img {
 
 #counter_display {
   grid-column: 2/3;
-  color: #bb9550;
+  color: white;
 }
 
 .counter_wrapper {
@@ -134,8 +130,14 @@ header img {
 }
 
 #search_wrapper {
-  margin-inline: auto;
-  margin-block: auto;
+  display: grid;
+
+  /*mobile*/
+  /*  grid-template-columns: auto 3.2rem; */
+
+  /*web*/
+  grid-template-columns: 3.5rem 1fr;
+  grid-gap: 0.5rem;
 }
 
 /*-----------dropdown*/
@@ -168,12 +170,19 @@ select:active {
   padding: 1rem;
 }
 
+label {
+  color: white;
+  font-family: Open Sans, sans-serif;
+}
+
 #sorting button {
   padding-inline: 1rem;
   padding-block: 0.3rem;
   margin-block: 1rem;
   background-color: transparent;
   border: none;
+  color: white;
+  font-family: Open Sans, sans-serif;
 }
 
 #sorting button:hover {
@@ -182,13 +191,17 @@ select:active {
   color: #e2b125;
 }
 
+#filter button {
+  font-family: Open Sans, sans-serif;
+}
+
 /*-----------------------student listview*/
 
-#container {
+/* #container {
   background-color: white;
-  border: 6px solid #bb9550;
-  border-radius: 23px;
-}
+
+  border-radius: 0px 0px 23px 23px;
+} */
 
 section {
   display: grid;
@@ -203,11 +216,11 @@ article {
   background-color: white;
   /*  box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.3); */
   border-radius: 12px;
-  border: 7px solid #bb9550;
 }
 
 #fullname {
   margin-block: 1rem;
+  color: white;
 }
 
 .house_badge {
@@ -304,6 +317,17 @@ article img {
   padding-block: 15em;
   display: none;
   overflow: scroll;
+}
+
+.buttons_align > button {
+  background-color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 0.3rem;
+  font-family: open sans;
+}
+
+#popup #back {
 }
 
 .align_center {
