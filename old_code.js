@@ -58,7 +58,7 @@ function buttonListener() {
   //hack button
   document
     .querySelector("#hack_button")
-    .addEventListener("click", clickOnMysteriousButton);
+    .addEventListener("click", hackTheSystem);
 
   filterButtons.forEach((button) =>
     button.addEventListener("click", selectFilter)
@@ -237,9 +237,7 @@ function getBloodStatus(student) {
 function selectFilter(event) {
   //filter on a criteria
   const filter = event.target.dataset.filter;
-  document.querySelector(".chosen").classList.remove("chosen");
-  this.classList.add("chosen");
-
+  console.log(`User selected ${filter}`);
   setFilter(filter);
 }
 
@@ -453,11 +451,9 @@ function displayStudent(student) {
     .content.cloneNode(true);
 
   //set clone data
-
   clone.querySelector("img").src = student.profilePic;
-  clone.querySelector("#firstname").textContent = student.firstName;
-  clone.querySelector("#middlename").textContent = student.middleName;
-  clone.querySelector("#lastname").textContent = student.lastName;
+  clone.querySelector("#fullname").textContent =
+    student.firstName + " " + student.lastName;
 
   clone.querySelector("#house").innerHTML = "<b>House: </b>" + student.house;
   clone.querySelector("#gender").innerHTML = "<b>Gender: </b>" + student.gender;
@@ -468,6 +464,14 @@ function displayStudent(student) {
   clone
     .querySelector("#expel")
     .addEventListener("click", () => expelledStudents(student));
+
+  //show prefect badge on article
+  /*  
+  if (student.prefect === true) {
+    clone.querySelector(".prefect_badge").src = "billeder/prefect_true.png";
+  } else {
+    clone.querySelector(".prefect_badge").src = "";
+  } */
 
   //show house badges and color border for each house
 
@@ -498,21 +502,7 @@ function displayStudent(student) {
 
   if (student.expelled === true) {
     clone.querySelector("#expel").classList.add("hidden");
-    (student.prefect = false),
-      clone.querySelector("#is_prefect").classList.add("hidden"),
-      document.querySelector("[data-field=prefect]").classList.add("hidden"),
-      (student.inqSquad = false),
-      clone.querySelector("#is_member").classList.add("hidden"),
-      document.querySelector('[data-field="inqSquad"]').classList.add("hidden");
-
     /* (student.prefect = false), (clone.querySelector(".prefect_badge").src = ""); */
-  } else {
-    document.querySelector("[data-field=prefect]").classList.remove("hidden"),
-      clone.querySelector("#is_prefect").classList.remove("hidden"),
-      document
-        .querySelector('[data-field="inqSquad"]')
-        .classList.remove("hidden");
-    clone.querySelector("#is_member").classList.remove("hidden");
   }
 
   if (student.prefect === true) {
@@ -563,20 +553,16 @@ function showDetails(student) {
 
   if (student.prefect === true) {
     document.querySelector("[data-field=prefect]").textContent = "⭐ prefect";
-    document.querySelector("#is_prefect").classList.remove("hidden");
   } else {
     document.querySelector("[data-field=prefect]").textContent = "☆ prefect";
-    document.querySelector("#is_prefect").classList.add("hidden");
   }
 
   if (student.inqSquad === true) {
     document.querySelector('[data-field="inqSquad"]').textContent =
       "🏅 Inquisitorial Member";
-    document.querySelector("#is_member").classList.remove("hidden");
   } else {
     document.querySelector('[data-field="inqSquad"]').textContent =
       "🎖 Not Inquisitorial Member";
-    document.querySelector("#is_member").classList.add("hidden");
   }
 
   if (student.house === "Gryffindor") {
@@ -782,21 +768,6 @@ function showClubWarning() {
       .querySelector(".clubclosebutton")
       .removeEventListener("click", closeClubWarning);
   }
-}
-
-function clickOnMysteriousButton() {
-  //remove eventlistener
-  document
-    .querySelector("#hack_button")
-    .removeEventListener("click", clickOnMysteriousButton);
-
-  //make the screen shake
-  document.querySelector("body").classList.add("shake");
-
-  //send to hackTheSystem after animation
-  document
-    .querySelector("body")
-    .addEventListener("animationend", hackTheSystem);
 }
 
 function hackTheSystem() {

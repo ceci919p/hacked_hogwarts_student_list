@@ -9,16 +9,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <title>Hacked Hogwarts Student List</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="old_code_style.css" />
   </head>
   <body>
     <header>
       <img src="icons/hogwarts_logo2.png" alt="crest" />
       <h1>Hogwarts</h1>
       <h2>School of Witchcraft and Wizardry</h2>
-
-
-     
+      <button id="hack_button">Hack the system</button>
     </header>
     <main>
 
@@ -33,13 +31,11 @@
         />
       </div>
 
-      
-
 
       <div class="buttons_wrapper">
         <div id="filter">
           <label for="sortby">Filter by:</label>
-          <button class="filter chosen" data-action="filter" data-filter="*">
+          <button class="filter" data-action="filter" data-filter="*">
             all
           </button>
           <button class="filter" data-action="filter" data-filter="gryffindor">
@@ -68,7 +64,7 @@
           </button>
         </div>
 
-      <!--   <div id="sorting">
+        <div id="sorting">
           <label for="sortby">Sort by:</label>
 
           <button
@@ -95,43 +91,7 @@
             House
           </button>
         </div>
-      </div> -->
-
-      <div id="sorting">
-              <label for="sortby">Sort by:</label>
-          <select name="sorting_options" id="sorting_options">
-            <option
-              value="firstName"
-              data-action="sort"
-              data-sort-direction="asc"
-              data-sort="firstName"
-            >
-              First name
-            </option>
-
-            <option
-              value="lastName"
-              data-action="sort"
-              data-sort-direction="asc"
-              data-sort="lastName"
-            >
-              Last name
-            </option>
-
-            <option
-              value="house"
-              data-action="sort"
-              data-sort-direction="asc"
-              data-sort="house"
-            >
-              House
-            </option>
-
-
-
-
-          </select>
-        </div>
+      </div>
 
     
 
@@ -143,50 +103,37 @@
             <button id="back">X</button>
           </div>
           <div class="align_popup">
-            <div class="align_name_wrapper">
             <div class="name_wrapper">
               <h2 id="popup_firstname"></h2>
               <h2 id="popup_middlename"></h2>
               <h2 id="popup_lastname"></h2>
             </div>
-            </div>
 
             <p id="popup_nickname"></p>
             <div class="popup_wrapper">
-                  <div class="pic_and_house">
-          
-                <img id="popup_profilepic" src="" alt="picture" />
-                <img class="house_badge" src="" alt="house" />
-           
-                  <div class="club_badges">
-               <img id="is_prefect" class="hidden" src="icons/prefect.png" alt="prefect">
-                <img id="is_member" class="hidden" src="icons/inqsquad.png" alt="inqsquad">
-                </div>
-                </div>
-
-
-
-              <div class="info_col">
+              <div class="left_col">
+                <img id="popup_profilepic" src="" alt="" />
+                <img class="house_badge" src="" alt="" />
+              </div>
+              <div class="middle_col">
                 <p id="popup_house"></p>
                 <p id="popup_gender"></p>
                 <p id="popup_bloodstatus"></p>
               </div>
-           
-                 <div class="buttons_align">
+              <div class="right_col"></div>
+
+              <div class="buttons_align">
                 <button data-field="prefect"></button>
                 <button data-field="inqSquad"></button>
-             
               </div>
-
-             
             </div>
           </div>
         </article>
       </section>
         <div id="counter_display">
-       
+          <div>☆</div>
         <div class="counter_wrapper">
-        
+           <div>☆</div>
            
           <p id="num_active_students"></p>
           <p id="num_expelled_students"></p>
@@ -195,8 +142,8 @@
           <p id="num_slytherin"></p>
           <p id="num_ravenclaw"></p>
           <p id="num_hufflepuff"></p>
-         
-            
+           <div class="star">☆</div>
+                 <div >☆</div>
         </div>
         
         
@@ -209,21 +156,18 @@
           <div class="align_end">
             <button id="expel">X Expel!</button>
           </div>
-           <div class="name_wrapper">
-               <h2 id="firstname"></h2>
-              <h2 id="middlename"></h2>
-              <h2 id="lastname"></h2>
+           <div>
+              <h2 id="fullname"></h2>
             </div>
           <div class="see_details">
             <div class="pic_and_house">
-              <img src="" alt="student" />
-              <img class="house_badge" src="" alt="house" />
+              <img src="" alt="" />
+              <img class="house_badge" src="" alt="" />
              
               <div class="club_badges">
-              
-                 <img id="is_prefect" class="hidden" src="icons/prefect.png" alt="prefect">
-              <img id="is_member" class="hidden" src="icons/inqsquad.png" alt="inqsquad"></div>
-              
+               <div id="is_prefect" class="hidden"><img src="icons/prefect.png" alt="prefect"></div>
+                <div id="is_member" class="hidden"><img src="icons/inqsquad.png" alt="inqsquad"></div>
+                </div>
             </div>
            
             <div class="short_info">
@@ -259,7 +203,7 @@
           <div class="align_end">
             <button class="clubclosebutton">X</button>
           </div>
-          <h1>membership failed</h1>
+          <h1>Warning!</h1>
           <p>
             Only pureblods or members of Slytherin <br />
             can be member of inquisitorial Squad!
@@ -276,10 +220,8 @@
           <p>S̶̡͘ỏ̴̖r̸͙͠R̵͖̿ý̴̪ ̷̪̌y̸̼̋0̵͔͝u̵̮͐ ̴̢̄C̷̦̽ą̷̇n̵̖͠'̶̛̙T̷̥͘ ̵̺͝D̴͝ͅo̴̳̽ ̴͕̐Ț̶͝H̴̹͌ä̸̝́Ṱ̴͝</p>
         </div>
       </div>
-       <img id="hack_button"src="icons/hackbutton.png" alt="hackbutton">
     </main>
   
-   
   </body>
-  <script src="script.js"></script>
+  <script src="old_code.js"></script>
 </html>
