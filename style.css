@@ -6,10 +6,10 @@ body {
   /* background-color: lightgray; */
   /*   background-color: #403077; */
 
-  /* background-image: url("stars.gif"); */
-  background-size: 100%;
-  /*   background-repeat: repeat-y;
-  background-attachment: fixed; */
+  background-image: url("stars.gif");
+  /*  background-size: 100%; */
+  /*   background-repeat: repeat-y; */
+  background-attachment: fixed;
   height: 100%;
   width: 100%;
 }
@@ -313,6 +313,7 @@ article img {
   height: 100vh;
   position: fixed;
   top: 0;
+  left: 0;
   background-color: #00000099;
   padding-block: 15em;
   display: none;
