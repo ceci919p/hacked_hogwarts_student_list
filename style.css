@@ -1,14 +1,7 @@
-/*transition duration*/
-
 body {
   margin: 0;
   padding: 0;
-  /* background-color: lightgray; */
-  /*   background-color: #403077; */
-
-  background-image: url("stars.gif");
-  /*  background-size: 100%; */
-  /*   background-repeat: repeat-y; */
+  background-image: url("background/stars.gif");
   background-attachment: fixed;
   height: 100%;
   width: 100%;
@@ -53,10 +46,6 @@ h2 {
   text-align: center;
   font-family: MagicFont, sans-serif;
   color: white;
-}
-
-h3 {
-  font-family: MagicFont, sans-serif;
 }
 
 p {
@@ -114,38 +103,11 @@ header img {
 
 #search_wrapper {
   display: grid;
-
-  /*mobile*/
-  /*  grid-template-columns: auto 3.2rem; */
-
-  /*web*/
   grid-template-columns: 3.5rem 1fr;
   grid-gap: 0.5rem;
 }
 
-/*-----------dropdown*/
-
-/* select {
-  background-color: #2f223a;
-  padding: 0.7rem;
-  cursor: pointer;
-  color: white;
-  border-radius: 4px;
-  width: 250px;
-  margin-block: 1rem;
-  margin-inline: 1rem;
-}
-
-select:active {
-  padding: 0.7rem;
-  padding: 7rem;
-}
-
-#filter {
-  width: 200px;
-} */
-
-/*----------sorting and filtering buttons*/
+/*----------sorting dropdown and filtering buttons*/
 
 .buttons_wrapper,
 #search_wrapper {
@@ -266,18 +228,6 @@ article img {
   display: flex;
 }
 
-#details {
-  background-color: black;
-  border: none;
-  border-radius: 3px;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  padding-inline: 1.5rem;
-  padding-block: 0.3rem;
-}
-
 #expel {
   background-color: rgb(161, 48, 48);
   border: none;
@@ -360,7 +310,9 @@ button.clubclosebutton {
 .name_wrapper {
   display: flex;
   flex-wrap: wrap;
-  padding: 1rem;
+  padding-inline: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 0;
 }
 
 #popup article h2 {
@@ -379,6 +331,9 @@ button.clubclosebutton {
 
 #popup_nickname {
   margin-block: 0;
+  padding-inline: 1rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 .hide {
@@ -517,51 +472,3 @@ button.clubclosebutton {
     padding: 2rem;
   }
 }
-
-/* 
-@media (min-width: 500px) {
-  h1 {
-    font-size: 2em;
-  }
-
-  .firmanavn .logo2 {
-    display: block;
-  }
-
-  header {
-    display: grid;
-    grid-template-columns: auto 1fr;
-  }
-
-  nav button {
-    padding: 1rem 1.4rem;
-    font-size: 1em;
-    border-radius: 5px 5px 0 0px;
-  }
-
-  #popup article {
-    width: 50%;
-  }
-
-  footer {
-    padding: 1rem 1.5rem;
-    display: flex;
-    justify-content: space-around;
-    gap: 1rem;
-  }
-
-  footer div {
-    margin-top: 1rem;
-  }
-}
-
-@media (min-width: 1000px) {
-  #popup article {
-    width: 40%;
-  }
-
-  nav button {
-    padding: 1rem 2rem;
-  }
-}
- */

@@ -5,7 +5,7 @@ window.addEventListener("DOMContentLoaded", start);
 //global variable
 let hacked = false;
 
-//create student object
+//prototype for all students
 const Student = {
   firstName: "",
   lastName: "",
@@ -504,8 +504,6 @@ function displayStudent(student) {
       (student.inqSquad = false),
       clone.querySelector("#is_member").classList.add("hidden"),
       document.querySelector('[data-field="inqSquad"]').classList.add("hidden");
-
-    /* (student.prefect = false), (clone.querySelector(".prefect_badge").src = ""); */
   } else {
     document.querySelector("[data-field=prefect]").classList.remove("hidden"),
       clone.querySelector("#is_prefect").classList.remove("hidden"),
@@ -542,10 +540,6 @@ function expelledStudents(student) {
 }
 
 function showDetails(student) {
-  console.log(student);
-
-  /* # blood - status; */
-
   const popup = document.querySelector("#popup");
   popup.style.display = "block";
   popup.querySelector("#popup_profilepic").src = student.profilePic;
@@ -640,8 +634,6 @@ function clickPrefect(student) {
     student.prefect = false;
   } else {
     tryToMakePrefect(student);
-
-    //buildList(); - skal kun bruges hvis vi vil tilsætte ikonerne
   }
   buildList();
 
@@ -738,9 +730,6 @@ function showWarning(student, otherStudent) {
 function closeWarning() {
   //close warning and remove eventlistener
   document.querySelector("#warning_remove_other").classList.add("hide");
-  /* document
-    .querySelector("#warning_remove_other #removeotherbutton")
-    .removeEventListener("click", clickRemoveOther); */
 }
 
 function tryToMakeMember(student) {
@@ -748,6 +737,7 @@ function tryToMakeMember(student) {
     console.log("congratz, the student is now a member!");
     student.inqSquad = true;
     if (hacked === true) {
+      //remove membership after 2 seconds
       setTimeout(cancelMembership, 2000, student);
       function cancelMembership(student) {
         student.inqSquad = false;
@@ -828,18 +818,18 @@ function hackTheSystem() {
   allStudents.push(newStudent);
   randomizeBloodStatus();
 
-  removeMembership(newStudent);
-
   buildList();
 }
 
 function randomizeBloodStatus() {
+  //mix up bloodstatus
   allStudents.forEach((student) => {
     if (student.bloodstatus === "Muggleborn") {
       student.bloodstatus = "Pureblood";
     } else if (student.bloodstatus === "Halfblood") {
       student.bloodstatus = "Pureblood";
     } else {
+      //randomize pureblood students to other bloodstatus
       let bloodStatusRandom = Math.floor(Math.random() * 3);
       if (bloodStatusRandom === 0) {
         student.bloodstatus = "Pureblood";
@@ -850,19 +840,6 @@ function randomizeBloodStatus() {
       }
     }
   });
-}
-
-function removeMembership(student) {
-  if (student.inqSquad === true) {
-    setTimeout(cancelMembership, 3000); //cancel membership after 3 seconds ------!!!DOES NOT WORK!!!
-  }
-
-  function cancelMembership() {
-    student.inqSquad = false;
-
-    document.querySelector('[data-field="inqSquad"]').textContent =
-      "🎖 Not Inquisitorial Member";
-  }
 }
 
 function warningHacking() {
