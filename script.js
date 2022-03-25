@@ -64,7 +64,9 @@ function buttonListener() {
     button.addEventListener("click", selectFilter)
   );
 
-  sortButtons.forEach((button) => button.addEventListener("click", selectSort));
+  /*   sortButtons.forEach((button) => button.addEventListener("click", selectSort)); */
+  //  it's a dropdown list so I'll have to check for the change event
+  document.querySelector("#sorting").addEventListener("change", selectSort);
 
   //searchBar
   const searchBar = document.querySelector("#searchBar");
@@ -324,8 +326,10 @@ function isSquadMember(student) {
 //------sorting function
 
 function selectSort(event) {
-  const sortBy = event.target.dataset.sort;
-  const sortDir = event.target.dataset.sortDirection;
+  // get the chosen one in the dropdown list which is the value
+  const sortBy = event.target.value;
+  // since I can't choose directions asc/desc I hardcoded it to ascending
+  const sortDir = "asc";
 
   //toggle the direction
   if (sortDir === "asc") {
