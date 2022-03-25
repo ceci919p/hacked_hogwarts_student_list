@@ -24,7 +24,7 @@ const Student = {
 //let filterBy = "all";
 const settings = {
   filterBy: "all",
-  sortBy: "name",
+  sortBy: "firstName",
   sortDir: "asc",
 };
 
